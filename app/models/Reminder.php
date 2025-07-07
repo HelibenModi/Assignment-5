@@ -4,6 +4,19 @@ class Reminder {
 
     public function __construct() {}
 
+    public function user_with_most_reminders() {
+        $db = db_connect();
+        $stmt = $db->prepare("
+            SELECT username, COUNT(*) as total 
+            FROM reminders 
+            JOIN users ON reminders.user_id = users.ID 
+            GROUP BY user_id 
+            ORDER BY total DESC 
+            LIMIT 1;
+        ");
+        $stmt->execute();
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
 
     public function get_all_reminders() {
         $db = db_connect();
