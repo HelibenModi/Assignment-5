@@ -4,6 +4,7 @@ class User {
 
     public $username;
     public $password;
+    public $is_admin;
     public $auth = false;
 
     public function __construct() {
