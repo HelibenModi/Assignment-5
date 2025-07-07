@@ -33,7 +33,19 @@
             <?php endif; ?>
         </div>
     </div>
-
+    <!-- Top User by Reminder Count -->
+    <div class="card mb-4">
+        <div class="card-header bg-success text-white">
+            User with Most Reminders
+        </div>
+        <div class="card-body">
+            <?php if (!empty($data['top_user'])): ?>
+                <p><strong><?= htmlspecialchars($data['top_user']['username']) ?></strong> with <strong><?= $data['top_user']['total'] ?></strong> reminders.</p>
+            <?php else: ?>
+                <p>No data available.</p>
+            <?php endif; ?>
+        </div>
+    </div>
    
 
 <?php require_once 'app/views/templates/footer.php'; ?>
