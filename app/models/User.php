@@ -18,7 +18,7 @@ class User {
       return $rows;
     }
 
-   public function authenticate($username, $password) {
+   public function authenticate($username, $password, $is_admin) {
     $username = strtolower($username);
     $db = db_connect();
 
@@ -48,6 +48,7 @@ class User {
               $_SESSION['success'] = "Welcome, " . ucwords($username) . "!";
               unset($_SESSION['failedAuth'], $_SESSION['lastFailedTime']);
               $this->logAttempt($username, 'success');
+         $_SESSION['is_admin'] = $rows['is_admin'];
               header('Location: /home');
               exit;
           } else {
