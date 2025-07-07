@@ -33,6 +33,7 @@
             <?php endif; ?>
         </div>
     </div>
+    
     <!-- Top User by Reminder Count -->
     <div class="card mb-4">
         <div class="card-header bg-success text-white">
@@ -46,6 +47,33 @@
             <?php endif; ?>
         </div>
     </div>
-   
+    <!-- Total Logins by User -->
+    <div class="card mb-4">
+        <div class="card-header bg-info text-white">
+            Total Logins by User
+        </div>
+        <div class="card-body">
+            <?php if (!empty($data['login_counts'])): ?>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Username</th>
+                            <th>Total Logins</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($data['login_counts'] as $row): ?>
+                            <tr>
+                                <td><?= htmlspecialchars($row['username']) ?></td>
+                                <td><?= $row['total'] ?></td>
+                            </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
+            <?php else: ?>
+                <p>No login data found.</p>
+            <?php endif; ?>
+        </div>
+    </div>
 
 <?php require_once 'app/views/templates/footer.php'; ?>
