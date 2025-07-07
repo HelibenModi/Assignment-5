@@ -75,5 +75,42 @@
             <?php endif; ?>
         </div>
     </div>
+    <!-- Chart.js Visualization -->
+        <div class="card mb-4">
+            <div class="card-header bg-dark text-white">
+                Login Chart (Chart.js)
+            </div>
+            <div class="card-body">
+                <canvas id="loginChart"></canvas>
+            </div>
+        </div>
+    </main>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    const ctx = document.getElementById('loginChart').getContext('2d');
 
+    const chart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: <?= json_encode(array_column($data['login_counts'], 'username')) ?>,
+            datasets: [{
+                label: 'Total Logins',
+                data: <?= json_encode(array_column($data['login_counts'], 'total')) ?>,
+                backgroundColor: 'rgba(54, 162, 235, 0.7)',
+                borderColor: 'rgba(54, 162, 235, 1)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    stepSize: 1
+                }
+            }
+        }
+    });
+</script>
+            
 <?php require_once 'app/views/templates/footer.php'; ?>
