@@ -87,4 +87,15 @@ class User {
      $stmt->bindValue(':password', $hashed);
      $stmt->execute();
 }
+    public function get_login_counts() {
+        $db = db_connect();
+        $stmt = $db->prepare("
+            SELECT username, COUNT(*) AS total 
+            FROM login_logs 
+            GROUP BY username;
+        ");
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
 }
