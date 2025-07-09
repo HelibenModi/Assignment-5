@@ -54,7 +54,7 @@ if (!isset($_SESSION['auth'])) {
           <a class="nav-link disabled">Disabled</a>
         </li>
   
-  <?php if (isset($_SESSION['auth'])&& $_SESSION['is_admin'] == 1): ?>
+  <?php if (isset($_SESSION['auth'])&& $_SESSION['is_admin'] == 1 && $_SERVER['REQUEST_URI'] === '/Reports'): ?>
     <li class="nav-item">
       <a class="nav-link text-danger" href="/logout">Logout</a>
     </li>
