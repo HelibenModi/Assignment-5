@@ -37,9 +37,9 @@
         <p class="text-muted">You don’t have any reminders yet.</p>
     <?php endif; ?>
 </main>
-<div class="row">
-    <div class="col-lg-12">
-        <p> <a href="/logout">Click here to logout</a></p>
-    </div>
+<br/><br/>
+<div class="text-right mb-5">
+    <a href="/logout" class="btn btn-danger">Click here to logout</a>
+</div>
 </div>
 <?php require_once 'app/views/templates/footer.php'; ?>
