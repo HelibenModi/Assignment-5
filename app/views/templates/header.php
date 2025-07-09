@@ -15,50 +15,40 @@ if (!isset($_SESSION['auth'])) {
         <meta name="mobile-web-app-capable" content="yes">
     </head>
     <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">COSC 4806</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/home">Home</a>
-           </li>
-          <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/reminders">Reminders</a>
-        </li>
-          
-            <?php if (isset($_SESSION['auth']) && $_SESSION['is_admin'] == 1){ ?>
-        <li class="nav-item">
-          
-            <a class="nav-link active" aria-current="page" href="/Reports">Reports</a>
-          </li> <?php }                                                                              
-              ?>
-        <li class="nav-item">
-          <a class="nav-link" href="/about">About Me</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Dropdown
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-          </ul>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled">Disabled</a>
-        </li>
-  
-  <?php if (isset($_SESSION['auth'])&& $_SESSION['is_admin'] == 1 && $_SERVER['REQUEST_URI'] === '/Reports'): ?>
-    <li class="nav-item">
-      <a class="nav-link text-danger" href="/logout">Logout</a>
-    </li>
-  <?php endif; ?>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow">
+        <div class="container-fluid">
+          <a class="navbar-brand fw-bold" href="/home">COSC 4806</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav gap-2">
+
+              <li class="nav-item">
+                <a class="nav-link <?= $_SERVER['REQUEST_URI'] == '/home' ? 'active btn btn-primary text-white' : '' ?>" href="/home">Home</a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link <?= $_SERVER['REQUEST_URI'] == '/reminders' ? 'active btn btn-primary text-white' : '' ?>" href="/reminders">Reminders</a>
+              </li>
+
+              <?php if (isset($_SESSION['auth']) && $_SESSION['is_admin'] == 1): ?>
+              <li class="nav-item">
+                <a class="nav-link <?= $_SERVER['REQUEST_URI'] == '/Reports' ? 'active btn btn-primary text-white' : '' ?>" href="/Reports">Reports</a>
+              </li>
+              <?php endif; ?>
+
+              <?php if (isset($_SESSION['auth'])): ?>
+              <li class="nav-item">
+                <a class="nav-link text-danger fw-bold" href="/logout">Logout</a>
+              </li>
+              <?php endif; ?>
+
+            </ul>
+          </div>
+        </div>
+      </nav>
 
       </ul>
     </div>
