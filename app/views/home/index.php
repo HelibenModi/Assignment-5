@@ -3,7 +3,10 @@
     <div class="page-header" id="banner">
         <div class="row">
             <div class="col-lg-12">
-                <h1>Hey</h1>
+                <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <h1><span class="navbar-text text-dark me-2">Welcome, <?= $_SESSION['username'] ?? '' ?></span></h1>
+                  </li>
                 <p class="lead"> <?= date("F jS, Y"); ?></p>
             </div>
         </div>

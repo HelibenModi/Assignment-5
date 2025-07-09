@@ -53,6 +53,7 @@ if (!isset($_SESSION['auth'])) {
         <li class="nav-item">
           <a class="nav-link disabled">Disabled</a>
         </li>
+  
   <?php if (isset($_SESSION['auth'])&& $_SESSION['is_admin'] == 1): ?>
     <li class="nav-item">
       <a class="nav-link text-danger" href="/logout">Logout</a>
