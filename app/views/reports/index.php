@@ -14,6 +14,7 @@
                     <thead>
                         <tr>
                             <th>User ID</th>
+                            <th>Username</th>
                             <th>Subject</th>
                             <th>Created At</th>
                         </tr>
@@ -22,6 +23,7 @@
                         <?php foreach ($data['all_reminders'] as $reminder): ?>
                             <tr>
                                 <td><?= htmlspecialchars($reminder['user_id']) ?></td>
+                                <td><?= htmlspecialchars($reminder['username'])?></td>
                                 <td><?= htmlspecialchars($reminder['subject']) ?></td>
                                 <td><?= htmlspecialchars($reminder['created_at']) ?></td>
                             </tr>

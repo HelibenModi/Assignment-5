@@ -2,7 +2,8 @@
 class Reports extends Controller {
     public function index() {
         if (!isset($_SESSION['auth']) || $_SESSION['is_admin'] != 1) {
-            header("Location: /reports/index");
+            $_SESSION['error'] = "Access denied.";
+            header("Location: /home");
             exit;
         }
 

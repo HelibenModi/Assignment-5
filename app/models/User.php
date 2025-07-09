@@ -4,7 +4,6 @@ class User {
 
     public $username;
     public $password;
-    public $is_admin;
     public $auth = false;
 
     public function __construct() {
@@ -19,7 +18,7 @@ class User {
       return $rows;
     }
 
-   public function authenticate($username, $password, $is_admin) {
+   public function authenticate($username, $password) {
     $username = strtolower($username);
     $db = db_connect();
 
@@ -43,16 +42,20 @@ class User {
       $statement->bindValue(':name', $username);
       $statement->execute();
       $rows = $statement->fetch(PDO::FETCH_ASSOC);
-     if ($rows && password_verify($password, $rows['password'])) {
-              $_SESSION['auth'] = 1;
-              $_SESSION['username'] = ucwords($username);
-              $_SESSION['success'] = "Welcome, " . ucwords($username) . "!";
-              unset($_SESSION['failedAuth'], $_SESSION['lastFailedTime']);
-              $this->logAttempt($username, 'success');
-         $_SESSION['is_admin'] = $rows['is_admin'];
-              header('Location: /home');
-              exit;
-          } else {
+       if ($rows && password_verify($password, $rows['password'])) {
+           $_SESSION['auth'] = 1;
+           $_SESSION['username'] = ucwords($username);
+           $_SESSION['user_id'] = $rows['ID']; 
+           $_SESSION['is_admin'] = $rows['is_admin'];
+           $_SESSION['success'] = "Welcome, " . ucwords($username) . "!";
+           unset($_SESSION['failedAuth'], $_SESSION['lastFailedTime']);
+
+           $this->logAttempt($username, 'success');
+           header('Location: /home');
+           exit;
+       }
+
+           else {
               // Log failed attempt
               $_SESSION['failedAuth'] = ($_SESSION['failedAuth'] ?? 0) + 1;
               $_SESSION['lastFailedTime'] = time();

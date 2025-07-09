@@ -29,9 +29,13 @@ if (!isset($_SESSION['auth'])) {
           <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="/reminders">Reminders</a>
         </li>
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="/reports">Reports</a>
-          </li>
+          
+            <?php if (isset($_SESSION['auth']) && $_SESSION['is_admin'] == 1){ ?>
+        <li class="nav-item">
+          
+            <a class="nav-link active" aria-current="page" href="/Reports">Reports</a>
+          </li> <?php }                                                                              
+              ?>
         <li class="nav-item">
           <a class="nav-link" href="/about">About Me</a>
         </li>
@@ -49,6 +53,12 @@ if (!isset($_SESSION['auth'])) {
         <li class="nav-item">
           <a class="nav-link disabled">Disabled</a>
         </li>
+  <?php if (isset($_SESSION['auth'])&& $_SESSION['is_admin'] == 1): ?>
+    <li class="nav-item">
+      <a class="nav-link text-danger" href="/logout">Logout</a>
+    </li>
+  <?php endif; ?>
+
       </ul>
     </div>
   </div>
