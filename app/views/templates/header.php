@@ -39,7 +39,7 @@ if (!isset($_SESSION['auth'])) {
               </li>
               <?php endif; ?>
 
-              <?php if (isset($_SESSION['auth'])): ?>
+              <?php if (isset($_SESSION['auth']) && $_SESSION['is_admin'] == 1 && $_SERVER['REQUEST_URI']== '/Reports'): ?>
               <li class="nav-item">
                 <a class="nav-link text-danger fw-bold" href="/logout">Logout</a>
               </li>
