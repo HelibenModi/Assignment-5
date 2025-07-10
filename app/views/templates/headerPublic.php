@@ -4,8 +4,15 @@ if (isset($_SESSION['auth']) == 1) {
 }
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <title>Login - MyReminderApp</title>
+    </head>
+    <body>
+        <div class="text-center mt-4 mb-4">
+            <h1 class="display-5 fw-bold">My Reminders</h1>
+        </div>
      <link rel="stylesheet" href="/public/css/style.css">
     <link rel="icon" href="/favicon.png">
     <title>COSC 4806</title>
