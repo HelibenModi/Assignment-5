@@ -47,7 +47,7 @@ class User {
            $_SESSION['username'] = ucwords($username);
            $_SESSION['user_id'] = $rows['ID']; 
            $_SESSION['is_admin'] = $rows['is_admin'];
-           $_SESSION['success'] = "Welcome, " . ucwords($username) . "!";
+           $_SESSION['success'] = "You're now logged in, " . ucwords($username) . "!";
            unset($_SESSION['failedAuth'], $_SESSION['lastFailedTime']);
 
            $this->logAttempt($username, 'success');
