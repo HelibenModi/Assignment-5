@@ -17,6 +17,14 @@ class Reminder {
         $stmt->execute();
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
+    public function get_user_reminders($user_id) {
+        $db = db_connect();
+        $stmt = $db->prepare("SELECT * FROM reminders WHERE user_id = :user_id ORDER BY created_at DESC");
+        $stmt->bindValue(':user_id', $user_id);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
     public function get_all_reminders() {
         $db = db_connect();
         $stmt = $db->prepare("
