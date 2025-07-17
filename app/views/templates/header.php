@@ -15,7 +15,7 @@ if (!isset($_SESSION['auth'])) {
         <meta name="mobile-web-app-capable" content="yes">
     </head>
     <body>
-      <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-primary"> 
         <div class="container-fluid">
           <a class="navbar-brand fw-bold" href="/home">COSC 4806</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">

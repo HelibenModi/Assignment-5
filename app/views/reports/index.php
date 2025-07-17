@@ -2,6 +2,7 @@
 
 <main class="container mt-5">
     <h2 class="mb-4">Admin Reports</h2>
+    <p class="text-muted">View insights and reminders overview below.</p>
 
     <!-- All Reminders -->
     <div class="card mb-4">
