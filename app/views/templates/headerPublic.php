@@ -1,25 +1,18 @@
-<?php
-if (isset($_SESSION['auth']) == 1) {
-    header('Location: /reminders');
-}
-?>
-
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <title>Login - MyReminderApp</title>
-    </head>
-    <body>
-        <div class="text-center mt-4 mb-4">
-            <h1 class="display-5 fw-bold ">My Reminders</h1>
-            <p class="lead">Stay Organized. Stay Reminded.</p>
-        </div>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link rel="icon" href="/favicon.png">
-    <title>COSC 4806</title>
+<!DOCTYPE html>
+<html lang="en">
+<head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width">
+    <title>MyReminderApp</title>
+
+    <!-- Mobile‑friendly -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Icons / PWA bits -->
+    <link rel="icon" href="/favicon.png">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="mobile-web-app-capable" content="yes">
+
+    <!-- Custom CSS only — no Bootstrap -->
+    <link rel="stylesheet" href="/public/css/style.css">
 </head>
 <body>
