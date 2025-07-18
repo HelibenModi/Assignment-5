@@ -1,44 +1,40 @@
-<?php require_once 'app/views/templates/headerPublic.php'?>
-<main role="main" class="container">
-    <div class="page-header" id="banner">
-        <div class="row">
-            <div class="col-lg-12">
-                <h1>Create Your Account</h1>
+<?php require 'app/views/templates/headerPublic.php'; ?>
+<main role="main" class="container py-5" style="max-width: 540px;">
+    <div class="card shadow-sm rounded-4 p-4">
+        <h2 class="mb-4 text-center fw-semibold">Create Account</h2>
+
+        <?php if (!empty($_SESSION['success'])): ?>
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <?= $_SESSION['success'] ?>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
-        </div>
-    </div>
-<div class="row">
-    <div class="col-sm-auto">
-        <?php if (isset($_SESSION['success'])): ?>
-            <div class="alert alert-success"><?= $_SESSION['success'] ?></div>
             <?php unset($_SESSION['success']); ?>
         <?php endif; ?>
 
-        <?php if (isset($_SESSION['error'])): ?>
-            <div class="alert alert-danger"><?= $_SESSION['error'] ?></div>
+        <?php if (!empty($_SESSION['error'])): ?>
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <?= $_SESSION['error'] ?>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
             <?php unset($_SESSION['error']); ?>
         <?php endif; ?>
 
         <form action="/create/register" method="post">
-    <fieldset>
-      <div class="form-group">
-        <label for="username">Username</label>
-        <input required type="text" class="form-control" name="username"><br/><br/>
-      </div>
-      <div class="form-group">
-        <label for="password">Password</label>
-        <input required type="password" class="form-control" name="password"  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{10,}" title="Must contain an uppercase, lower case and atleast 10 or more characters"><br/><br/>
-
-      </div>
-        <div class="form-group">
-            <label for="password">Confirm Password</label>
-            <input required type="password" class="form-control" name="confirm_password"><br/><br/>
-          </div>
-            <br>
-
-        <button type="submit" class="btn btn-primary">Register</button>
-    </fieldset>
-    </form> 
-  </div>
-</div>
-    <?php require_once 'app/views/templates/footer.php' ?>
+            <div class="mb-3">
+                <label for="username" class="form-label">Username</label>
+                <input required id="username" name="username" class="form-control rounded-pill" type="text">
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input required id="password" name="password" class="form-control rounded-pill" type="password"
+                       title="Must contain upper, lower, digit and ≥ 10 chars">
+            </div>
+            <div class="mb-3">
+                <label for="confirm_password" class="form-label">Confirm Password</label>
+                <input required id="confirm_password" name="confirm_password" class="form-control rounded-pill" type="password">
+            </div>
+            <button class="btn btn-primary w-100 rounded-pill">Register</button>
+        </form>
+    </div>
+</main>
+<?php require 'app/views/templates/footer.php'; ?>

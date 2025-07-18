@@ -11,9 +11,10 @@ if (isset($_SESSION['auth']) == 1) {
     </head>
     <body>
         <div class="text-center mt-4 mb-4">
-            <h1 class="display-5 fw-bold">My Reminders</h1>
+            <h1 class="display-5 fw-bold ">My Reminders</h1>
+            <p class="lead">Stay Organized. Stay Reminded.</p>
         </div>
-     <link rel="stylesheet" href="/public/css/style.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="icon" href="/favicon.png">
     <title>COSC 4806</title>
     <meta charset="UTF-8">
